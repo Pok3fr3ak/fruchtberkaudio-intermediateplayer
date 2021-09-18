@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { io } from 'socket.io-client';
 
 function App() {
+  const socket = io('http://localhost:3500');
+
+  socket.on('initalToken', (data)=>{
+    console.log(data);
+  })
+
   return (
     <div className="App">
       <header className="App-header">
